@@ -31,7 +31,8 @@ function App() {
                         functionName: "proposals",
                         args: [i],
                     });
-                    proposals.push({
+                    console.log("proposal: ", proposal);
+                    proposals.unshift({
                         proposalId: i,
                         description: proposal[0],
                         recipient: proposal[1],
@@ -78,7 +79,7 @@ function App() {
         return () => {
             unwatch();
         };
-    }, [publicClient]);
+    }, []);
     
     
     
@@ -110,8 +111,8 @@ function App() {
                                         amount={p.amount}
                                         deadline={p.deadline}
                                         handleVote={() => { }}
-                                        voteCount={p.voteCount}
-                                        executed={p.executed}
+                                        voteCount={0}
+                                        executed={false}
                                         isVoted={false}
                                     />
                                 ))}
